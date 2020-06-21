@@ -1,6 +1,6 @@
-# wpm-monitor README
+# vscode-wpm-monitor README
 
-This is the README for your extension "wpm-monitor". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "vscode-wpm-monitor". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

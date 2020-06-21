@@ -1,8 +1,8 @@
 {
-	"name": "wpm-monitor",
-	"displayName": "wpm-monitor",
+	"name": "vscode-wpm-monitor",
+	"displayName": "wpm monitor",
 	"description": "displays the current wpm in the status bar",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
@@ -10,14 +10,18 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:wpm-monitor.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "wpm-monitor.helloWorld",
-				"title": "Hello World"
+				"command": "vscode-wpm-monitor.display",
+				"title": "wpm-monitor: display in status bar"
+			},
+			{
+				"command": "vscode-wpm-monitor.hide",
+				"title": "wpm-monitor: hide in status bar"
 			}
 		]
 	},
