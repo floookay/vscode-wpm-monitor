@@ -2,6 +2,13 @@
 
 This is the README for your extension "vscode-wpm-monitor". After writing up a brief description, we recommend including the following sections.
 
+## TODO
+
+- [ ] add configuration commands (number of characters, reset monitor)
+- [ ] maybe add optional command for silly special effects like '🔥' when typing above 80 wpm
+- [ ] maybe add a time-based mode instead of a character based mode
+- [ ] maybe add optional language specific skiplists (e.g. don't count semicolons in C++)
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
