@@ -2,7 +2,23 @@
 	"name": "vscode-wpm-monitor",
 	"displayName": "wpm monitor",
 	"description": "displays the current wpm in the status bar",
-	"version": "0.1.0",
+	"version": "0.2.0",
+	"publisher": "floookay",
+	"icon": "img/logo_x512.png",
+	"author": {
+		"name": "floookay",
+		"email": "info@floookay.de",
+		"url": "https://github.com/floookay"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/floookay/vscode-wpm-monitor/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/floookay/vscode-wpm-monitor.git"
+	},
+	"homepage": "https://github.com/hoovercj/vscode-power-mode",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
@@ -10,18 +26,82 @@
 		"Other"
 	],
 	"activationEvents": [
-		"*"
+		"onLanguage:abap",
+		"onLanguage:bat",
+		"onLanguage:bibtex",
+		"onLanguage:clojure",
+		"onLanguage:coffeescript",
+		"onLanguage:c",
+		"onLanguage:cpp",
+		"onLanguage:csharp",
+		"onLanguage:css",
+		"onLanguage:diff",
+		"onLanguage:dockerfile",
+		"onLanguage:fsharp",
+		"onLanguage:git-commit and git-rebase",
+		"onLanguage:go",
+		"onLanguage:groovy",
+		"onLanguage:handlebars",
+		"onLanguage:html",
+		"onLanguage:ini",
+		"onLanguage:java",
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:json",
+		"onLanguage:jsonc",
+		"onLanguage:latex",
+		"onLanguage:less",
+		"onLanguage:lua",
+		"onLanguage:makefile",
+		"onLanguage:markdown",
+		"onLanguage:objective-c",
+		"onLanguage:objective-cpp",
+		"onLanguage:perl and perl6",
+		"onLanguage:php",
+		"onLanguage:plaintext",
+		"onLanguage:powershell",
+		"onLanguage:jade",
+		"onLanguage:python",
+		"onLanguage:r",
+		"onLanguage:razor",
+		"onLanguage:ruby",
+		"onLanguage:rust",
+		"onLanguage:scss",
+		"onLanguage:sass",
+		"onLanguage:shaderlab",
+		"onLanguage:shellscript",
+		"onLanguage:sql",
+		"onLanguage:swift",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact",
+		"onLanguage:tex",
+		"onLanguage:vb",
+		"onLanguage:xml",
+		"onLanguage:xsl",
+		"onLanguage:yaml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-wpm-monitor.display",
-				"title": "wpm-monitor: display in status bar"
+				"command": "extension.modeSwitcher",
+				"title": "WPM-monitor: switch WPM mode"
 			},
 			{
-				"command": "vscode-wpm-monitor.hide",
-				"title": "wpm-monitor: hide in status bar"
+				"command": "extension.modeSetNumberOfCharacters",
+				"title": "WPM-monitor: set number of characters to be considered for WPM calculation"
+			},
+			{
+				"command": "extension.modeSetLengthOfTimeframe",
+				"title": "WPM-monitor: set length of timeframe in which the WPM will be calculated (in seconds)"
+			},
+			{
+				"command": "extension.setSpecialEffectThreshold",
+				"title": "WPM-monitor: set the WPM threshold after which the special effect will be displayed"
+			},
+			{
+				"command": "extension.reset",
+				"title": "WPM-monitor: reset and restart the WPM calculator"
 			}
 		]
 	},
