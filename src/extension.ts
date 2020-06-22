@@ -48,17 +48,14 @@ export function activate(context: vscode.ExtensionContext) {
 			switch (m) {
 				case Mode.character:
 					// wpm over specified number of characters
-					vscode.window.showInformationMessage("bruv haha XD");
 					mode = Mode.character;
 					break;
 				case Mode.time:
 					// wpm over specified time frame
 					mode = Mode.time;
-					vscode.window.showInformationMessage("l-o-fucking-l bruh");
 					break;
 				default:
 					// don't change anything
-					vscode.window.showInformationMessage("ahaha I hope I die");
 					break;
 			}
 			reset();
