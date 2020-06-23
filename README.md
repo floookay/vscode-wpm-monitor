@@ -1,8 +1,10 @@
-# WPM Monitor - README
+# WPM Monitor
 
-The extension `vscode-wpm-monitor` enables a words-per-minute counter in the status bar.
+This extension enables a words per minute counter in the status bar of the editor.
 
 ![showcase](./img/showcase.gif)
+
+A word is counted as 5 keypresses (including space, excluding delete keys).
 
 ## Features
 
@@ -18,6 +20,7 @@ There's also a special effect that shows in the status bar if you type faster th
 ## Known Issues
 
 - the wpm monitor also gets displayed in the status bar if no text window is open
+- the wpm monitor doesn't work in jupyter books that were opened with the editor of the python extension
 
 ## Release Notes
 
