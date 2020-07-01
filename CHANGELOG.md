@@ -4,11 +4,22 @@ All notable changes to the `vscode-wpm-monitor` extension will be documented in 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.3.0
+
+### Added
+
+- added optional automatic wpm reset after a specified duration of no new user input
+- added persistent configurations, editable in `settings.json`
+
+### Removed
+
+- removed the majority of the temporary configuration prompts (moved configuration to `settings.json`)
+
 ## 0.2.1
 
 ### Changed
 
-- updated the description of the extension
+- clarified the description of the extension
 
 ## 0.2.0
 
