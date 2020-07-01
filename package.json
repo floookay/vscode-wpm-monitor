@@ -2,7 +2,7 @@
 	"name": "vscode-wpm-monitor",
 	"displayName": "wpm monitor",
 	"description": "displays the current wpm in the status bar",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"publisher": "floookay",
 	"icon": "img/logo_x512.png",
 	"author": {
@@ -30,51 +30,75 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"configuration":[
+		"configuration": [
 			{
 				"title": "WPM Monitor",
 				"properties": {
 					"wpm-monitor.defaultMode": {
 						"type": "string",
-						"enum": ["character","time"],
+						"enum": [
+							"character",
+							"time"
+						],
 						"default": "character",
 						"description": "Default mode of how the extension calculates the current wpm.",
-						"enumDescriptions": ["Calculates the wpm over a fixed number of characters entered.", "Calculates the wpm over a fixed time frame."]
+						"enumDescriptions": [
+							"Calculates the wpm over a fixed number of characters entered.",
+							"Calculates the wpm over a fixed time frame."
+						]
 					},
 					"wpm-monitor.mode.character.numberOf": {
-						"type":"integer",
-						"default":100,
-						"minimum":2,
+						"type": "integer",
+						"default": 100,
+						"minimum": 2,
 						"description": "Number of characters to be considered for calculating the current wpm."
 					},
 					"wpm-monitor.mode.time.duration": {
-						"type":"integer",
-						"default":60,
+						"type": "integer",
+						"default": 60,
 						"minimum": 1,
 						"description": "Length of the timeframe in seconds to be considered for calculating the current wpm."
 					},
 					"wpm-monitor.specialEffect.threshold": {
-						"type":"integer",
-						"default":80,
+						"type": "integer",
+						"default": 80,
 						"minimum": 0,
 						"description": "Wpm threshold at which the the special effect will be displayed in the status bar."
 					},
 					"wpm-monitor.specialEffect.symbol": {
-						"type":"string",
-						"enum": ["🔥","❤","🍕","🏎","🚀","⚡","✨","🎉","👾","👽","🍍","💥","🍺","🚩","⌨","🤡","🤖"],
+						"type": "string",
+						"enum": [
+							"🔥",
+							"❤",
+							"🍕",
+							"🏎",
+							"🚀",
+							"⚡",
+							"✨",
+							"🎉",
+							"👾",
+							"👽",
+							"🍍",
+							"💥",
+							"🍺",
+							"🚩",
+							"⌨",
+							"🤡",
+							"🤖"
+						],
 						"default": "🔥",
 						"description": "Symbol to be displayed alongside the wpm count in the status bar once the specified threshold has been met."
 					},
 					"wpm-monitor.autoReset.enabled": {
-						"type":"boolean",
-						"default":false,
-						"description":"Enables or disables the automatic reset of the wpm counter after a specified time frame has passed without user input."
+						"type": "boolean",
+						"default": false,
+						"description": "Enables or disables the automatic reset of the wpm counter after a specified time frame has passed without user input."
 					},
 					"wpm-monitor.autoReset.duration": {
-						"type":"integer",
-						"default":60,
-						"minimum":5,
-						"description":"Time frame in seconds after which the internal wpm counter gets reset if no user input occured in the meantime. The latest wpm count will still be displayed in the status bar."
+						"type": "integer",
+						"default": 60,
+						"minimum": 5,
+						"description": "Time frame in seconds after which the internal wpm counter gets reset if no user input occured in the meantime. The latest wpm count will still be displayed in the status bar."
 					}
 				}
 			}
