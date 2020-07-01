@@ -13,14 +13,22 @@ The monitor offers two modes:
 - a character based mode: where the wpm is calculated over the last 100 characters entered
 - a time based mode: where the wpm is calculated over a fixed timeframe
 
-You can switch modes and edit the number of characters or length of the timeframe with the command prompt.
+You can quickly switch modes for the current session or reset &amp; restart the wpm monitor with the command prompt.
 
 There's also a special effect that shows in the status bar if you type faster than a specified threshold, which you can also edit via the command prompt.
+
+## Configuration
+
+- set the default mode in which the wpm monitor runs on startup
+- set the number of characters that should be considered for calculating the wpm in character based mode
+- set the duration of the time frame to be considered for calculating the wpm in time based mode
+- set the threshold for displaying the special effect alongside the wpm monitor
+- select the special effect symbol that will get displayed
 
 ## Known Issues
 
 - the wpm monitor also gets displayed in the status bar if no text window is open
-- the wpm monitor doesn't work in jupyter books that were opened with the editor of the python extension
+- the wpm monitor doesn't work in jupyter notebooks that were opened with the notebook editor of the python extension
 
 ## Release Notes
 
@@ -34,10 +42,3 @@ There's also a special effect that shows in the status bar if you type faster th
 ### 0.1.0
 
 - added basic functionality and character based wpm mode
-
-## TODO
-
-- [x] add configuration commands (number of characters, reset monitor)
-- [x] maybe add optional command for silly special effects like '🔥' when typing above 80 wpm
-- [x] maybe add a time-based mode instead of a character based mode
-- [ ] maybe add optional language specific skiplists (e.g. don't count semicolons in C++)

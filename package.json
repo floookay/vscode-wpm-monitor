@@ -30,26 +30,52 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration":[
+			{
+				"title": "WPM Monitor",
+				"properties": {
+					"wpm-monitor.defaultMode": {
+						"type": "string",
+						"enum": ["character","time"],
+						"default": "character",
+						"description": "Default mode of how the extension calculates the current wpm.",
+						"enumDescriptions": ["Calculates the wpm over a fixed number of characters entered.", "Calculates the wpm over a fixed time frame."]
+					},
+					"wpm-monitor.mode.character.numberOf": {
+						"type":"integer",
+						"default":100,
+						"minimum":2,
+						"description": "Number of characters to be considered for calculating the current wpm."
+					},
+					"wpm-monitor.mode.time.duration": {
+						"type":"integer",
+						"default":60,
+						"minimum": 1,
+						"description": "Length of the timeframe in seconds to be considered for calculating the current wpm."
+					},
+					"wpm-monitor.specialEffect.threshold": {
+						"type":"integer",
+						"default":80,
+						"minimum": 0,
+						"description": "Wpm threshold at which the the special effect will be displayed in the status bar."
+					},
+					"wpm-monitor.specialEffect.symbol": {
+						"type":"string",
+						"enum": ["🔥","❤","🍕","🏎","🚀","⚡","✨","🎉","👾","👽","🍍","💥","🍺","🚩","⌨","🤡","🤖"],
+						"default": "🔥",
+						"description": "Symbol to be displayed alongside the wpm count in the status bar once the specified threshold has been met."
+					}
+				}
+			}
+		],
 		"commands": [
 			{
 				"command": "extension.modeSwitcher",
-				"title": "WPM-monitor: switch WPM mode"
-			},
-			{
-				"command": "extension.modeSetNumberOfCharacters",
-				"title": "WPM-monitor: set number of characters to be considered for WPM calculation"
-			},
-			{
-				"command": "extension.modeSetLengthOfTimeframe",
-				"title": "WPM-monitor: set length of timeframe in which the WPM will be calculated (in seconds)"
-			},
-			{
-				"command": "extension.setSpecialEffectThreshold",
-				"title": "WPM-monitor: set the WPM threshold after which the special effect will be displayed"
+				"title": "WPM Monitor: switch wpm mode of current session"
 			},
 			{
 				"command": "extension.reset",
-				"title": "WPM-monitor: reset and restart the WPM calculator"
+				"title": "WPM Monitor: reset and restart the wpm calculator"
 			}
 		]
 	},
