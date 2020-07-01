@@ -64,6 +64,17 @@
 						"enum": ["🔥","❤","🍕","🏎","🚀","⚡","✨","🎉","👾","👽","🍍","💥","🍺","🚩","⌨","🤡","🤖"],
 						"default": "🔥",
 						"description": "Symbol to be displayed alongside the wpm count in the status bar once the specified threshold has been met."
+					},
+					"wpm-monitor.autoReset.enabled": {
+						"type":"boolean",
+						"default":false,
+						"description":"Enables or disables the automatic reset of the wpm counter after a specified time frame has passed without user input."
+					},
+					"wpm-monitor.autoReset.duration": {
+						"type":"integer",
+						"default":60,
+						"minimum":5,
+						"description":"Time frame in seconds after which the internal wpm counter gets reset if no user input occured in the meantime. The latest wpm count will still be displayed in the status bar."
 					}
 				}
 			}

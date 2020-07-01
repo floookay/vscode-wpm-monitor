@@ -16,6 +16,10 @@ let config = {
 	mode: Mode.character,
 	character: 100,
 	duration: 60,
+	autoReset: {
+		duration: 60,
+		enabled: false
+	},
 	specialeffect: {
 		symbol: "🔥",
 		threshold: 80
@@ -24,6 +28,8 @@ let config = {
 
 // VARIABLES
 let inputTimestamps: number[] = [];
+let autoResetHandler:NodeJS.Timeout;
+let autoResetActive:Boolean = true;
 
 // OBJECTS
 let documentChangeListenerDisposer: vscode.Disposable;
@@ -38,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	// console.log('Congratulations, your extension "vscode-wpm-monitor" is now active!');
 
-	
+
 
 	// add the status bar widget
 	context.subscriptions.push(wpmMonitor);
@@ -71,11 +77,34 @@ export function activate(context: vscode.ExtensionContext) {
 		});
 	});
 	context.subscriptions.push(modeSwitcherCommand);
+
+	// resets the values for wpm calculation
+	const resetCommand = vscode.commands.registerCommand('extension.reset', () => {
+		reset(true);
+	});
+	context.subscriptions.push(resetCommand);
 }
 
-function reset() {
+// polls every second if latest input is still in time frame or not
+// polling only active as long as the time frame is active
+// -> should get called less often than with event-based active monitoring
+function autoReset() {
+	return setInterval(() => {
+		if (inputTimestamps[inputTimestamps.length - 1] <= Date.now() - 1000 * config.autoReset.duration) {
+			// only clear interval in itself
+			autoResetActive = false;
+			clearInterval(autoResetHandler);
+			reset();
+		}
+	}, 1000);
+}
+
+
+function reset(resetDisplay?:boolean) {
 	inputTimestamps = [];
-	wpmMonitor.setWPM(0);
+	if (resetDisplay) {
+		wpmMonitor.setWPM(0);
+	}
 }
 
 function loadConfiguration() {
@@ -85,16 +114,25 @@ function loadConfiguration() {
 	config.duration = c.get("mode.time.duration") || 60;
 	config.specialeffect.symbol = c.get("specialEffect.symbol") || "🔥";
 	config.specialeffect.threshold = c.get("specialEffect.threshold") || 80;
+	config.autoReset.enabled = c.get("autoReset.enabled") || true;
+	config.autoReset.duration = c.get("autoReset.duration") || 60;
 
 	// set config of the status bar widget
 	wpmMonitor.setSpecialEffect(config.specialeffect.symbol);
 	wpmMonitor.setSpecialEffectThreshold(config.specialeffect.threshold);
+
+	// start autoReset routine
+	if (config.autoReset.enabled === true) {
+		autoResetActive = true;
+		clearInterval(autoResetHandler);
+		autoResetHandler = autoReset();
+	}
 }
 
 function onDidChangeConfiguration(event: vscode.ConfigurationChangeEvent) {
 	if (event.affectsConfiguration("wpm-monitor")) {
 		loadConfiguration();
-		reset();
+		reset(true);
 	}
 }
 
@@ -123,12 +161,18 @@ function onDidChangeTextDocument(event: vscode.TextDocumentChangeEvent) {
 			break;
 	}
 
-
 	// skip deletions (wpm won't get updated)
 	if (input === "") {
 		return;
 	}
 	// TODO: skip copy paste items, language specific skip lists, user skip lists
+
+	// restart autoReset if enabled
+	// autoResetActive is only false when autoResetHandler cleared itself
+	if (config.autoReset.enabled && autoResetActive===false) {
+		autoResetActive = true;
+		autoResetHandler = autoReset();
+	}
 
 	// Add newest input as timestamp to list
 	inputTimestamps.push(Date.now());

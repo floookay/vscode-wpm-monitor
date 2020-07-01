@@ -15,6 +15,8 @@ The monitor offers two modes:
 
 You can quickly switch modes for the current session or reset &amp; restart the wpm monitor with the command prompt.
 
+You can activate an automatic reset of the wpm if you stop typing for a specified duration.
+
 There's also a special effect that shows in the status bar if you type faster than a specified threshold, which you can also edit via the command prompt.
 
 ## Configuration
@@ -24,6 +26,8 @@ There's also a special effect that shows in the status bar if you type faster th
 - set the duration of the time frame to be considered for calculating the wpm in time based mode
 - set the threshold for displaying the special effect alongside the wpm monitor
 - select the special effect symbol that will get displayed
+- enable/disable automatic reset of wpm
+- set the duration of the time frame after which the wpm will get reset if no new user input was recorded
 
 ## Known Issues
 
@@ -31,6 +35,11 @@ There's also a special effect that shows in the status bar if you type faster th
 - the wpm monitor doesn't work in jupyter notebooks that were opened with the notebook editor of the python extension
 
 ## Release Notes
+
+### 0.3.0
+
+- added optional automatic wpm reset after a specified duration of no new user input
+- made prompt configurations persisent by converting them into extension configurations
 
 ### 0.2.0
 
