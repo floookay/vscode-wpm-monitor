@@ -4,7 +4,7 @@ This extension enables a words per minute counter in the status bar of the edito
 
 ![showcase](./img/showcase.gif)
 
-A word is counted as 5 keypresses (including space, excluding delete keys).
+A word is counted as 5 keypresses (including space, excluding delete/modifier keys).
 
 ## Features
 
