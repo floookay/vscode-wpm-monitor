@@ -2,7 +2,7 @@
 	"name": "vscode-wpm-monitor",
 	"displayName": "wpm monitor",
 	"description": "displays the current wpm in the status bar",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"publisher": "floookay",
 	"icon": "img/logo_x512.png",
 	"author": {
