@@ -4,7 +4,7 @@ This extension enables a words per minute counter in the status bar of the edito
 
 ![showcase](./img/showcase.gif)
 
-A word is counted as 5 keypresses (including space, excluding delete/modifier keys).
+A word is counted as 5 keypresses (excluding space, delete and modifier keys).
 
 ## Features
 
@@ -35,6 +35,8 @@ There's also a special effect that shows in the status bar if you type faster th
 - the wpm monitor doesn't work in jupyter notebooks that were opened with the notebook editor of the python extension
 
 ## Release Notes
+
+Release notes of mayor and minor releases. For a full changelog check [CHANGELOG.md](./CHANGELOG.md).
 
 ### 0.3.0
 

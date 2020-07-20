@@ -1,10 +1,22 @@
-# Change Log
+# Changelog
 
 All notable changes to the `vscode-wpm-monitor` extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 0.3.0
+## [0.3.1] - 2020-07-20
+
+### Patched
+
+- patched lodash security vulnerability
+
+### Changed
+
+- removed space from being counted towards the wpm counter
+- added maximum number of inputs to be considered for the wpm calculation (60000 &rarr; 10h@100wpm)
+
+## [0.3.0] - 2020-07-01
 
 ### Added
 
@@ -15,13 +27,13 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - removed the majority of the temporary configuration prompts (moved configuration to `settings.json`)
 
-## 0.2.1
+## [0.2.1] - 2020-07-01
 
 ### Changed
 
 - clarified the description of the extension
 
-## 0.2.0
+## [0.2.0] - 2020-06-22
 
 ### Added
 

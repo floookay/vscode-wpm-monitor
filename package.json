@@ -51,12 +51,14 @@
 						"type": "integer",
 						"default": 100,
 						"minimum": 2,
+						"maximum": 60000,
 						"description": "Number of characters to be considered for calculating the current wpm."
 					},
 					"wpm-monitor.mode.time.duration": {
 						"type": "integer",
 						"default": 60,
 						"minimum": 1,
+						"maximum": 36000,
 						"description": "Length of the timeframe in seconds to be considered for calculating the current wpm."
 					},
 					"wpm-monitor.specialEffect.threshold": {

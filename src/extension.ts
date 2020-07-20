@@ -114,7 +114,7 @@ function loadConfiguration() {
 	config.duration = c.get("mode.time.duration") || 60;
 	config.specialeffect.symbol = c.get("specialEffect.symbol") || "🔥";
 	config.specialeffect.threshold = c.get("specialEffect.threshold") || 80;
-	config.autoReset.enabled = c.get("autoReset.enabled") || true;
+	config.autoReset.enabled = c.get("autoReset.enabled") || false;
 	config.autoReset.duration = c.get("autoReset.duration") || 60;
 
 	// set config of the status bar widget
@@ -161,8 +161,13 @@ function onDidChangeTextDocument(event: vscode.TextDocumentChangeEvent) {
 			break;
 	}
 
-	// skip deletions (wpm won't get updated)
-	if (input === "") {
+	// maximum length of the array (10h@100wpm)
+	while (inputTimestamps.length >= 60000) {
+		inputTimestamps.shift();
+	}
+
+	// skip deletions and (wpm won't get updated)
+	if (input === "" || input === " ") {
 		return;
 	}
 	// TODO: skip copy paste items, language specific skip lists, user skip lists
