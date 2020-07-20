@@ -38,7 +38,7 @@ There's also a special effect that shows in the status bar if you type faster th
 
 Release notes of mayor and minor releases. For a full changelog check [CHANGELOG.md](./CHANGELOG.md).
 
-## [0.4.0]
+### 0.4.0
 
 - patched lodash security vulnerability
 - removed space key from being counted towards the wpm counter
