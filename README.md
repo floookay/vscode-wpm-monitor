@@ -38,6 +38,12 @@ There's also a special effect that shows in the status bar if you type faster th
 
 Release notes of mayor and minor releases. For a full changelog check [CHANGELOG.md](./CHANGELOG.md).
 
+## [0.4.0]
+
+- patched lodash security vulnerability
+- removed space key from being counted towards the wpm counter
+- added maximum number of inputs to be considered for the wpm calculation (60000 &rarr; 10h@100wpm)
+
 ### 0.3.0
 
 - added optional automatic wpm reset after a specified duration of no new user input
